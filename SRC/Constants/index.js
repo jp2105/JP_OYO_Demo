@@ -1,0 +1,7 @@
+export const GET_CITIES = 'GET_CITIES';
+export const GET_HOTELS = 'GET_HOTELS';
+export const LOGIN_ASYNC_STORAGE = 'LOGINASYNCSTORAGE';
+export const SETPROFILE = 'SETPROFILE';
+export const SEARCHCITY = 'SEARCHCITY';
+export const COUNTRYCODE = 'COUNTRYCODE';
+
