@@ -173,7 +173,6 @@ export const SelectDateModel = props => {
                   calendarType={'checkIn'}
                   pastScrollRange={50}
                   futureScrollRange={50}
-
                   scrollEnabled={true}
                   showScrollIndicator={false}
                   minDate={Moment(new Date(minDate)).format('YYYY-MM-DD')}
@@ -185,6 +184,8 @@ export const SelectDateModel = props => {
                     [props.states.checkIn]: {
                       selected: true,
                       selectedColor: 'red',
+                      arrorType: 'checkIn',
+                      date: props.states.checkIn,
                     },
                   }}
                 />
@@ -213,10 +214,14 @@ export const SelectDateModel = props => {
                     [props.states.checkIn]: {
                       selected: true,
                       selectedColor: 'red',
+                      arrorType: 'checkIn',
+                      date: props.states.checkIn,
                     },
                     [props.states.checkOut]: {
                       selected: true,
                       selectedColor: 'red',
+                      arrorType: 'checkOut',
+                      date: props.states.checkOut,
                     },
                   }}
                 />
