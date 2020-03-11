@@ -158,7 +158,6 @@ class HomeClass extends React.Component {
   };
 
   render() {
-    // console.log(this.props.hotels && this.props.hotels);
     const hideOYO = this.scrollY.interpolate({
       inputRange: [widthScreen * 0, widthScreen * 0.2],
       outputRange: [widthScreen * 0.11, 0],

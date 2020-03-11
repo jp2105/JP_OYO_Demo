@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const Api = (url1, data, method) => {
   // let mainUrl = 'http://localhost:3000';
-  let mainUrl = 'http://db7002ba.ngrok.io';
+  let mainUrl = 'http://f0b5820b.ngrok.io';
   let url = mainUrl + '/data' + url1;
   switch (method) {
     case 'get':

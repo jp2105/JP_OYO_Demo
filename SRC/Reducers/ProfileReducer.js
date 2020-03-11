@@ -1,4 +1,4 @@
-import {SETPROFILE,COUNTRYCODE} from '../Constants';
+import {SETPROFILE, COUNTRYCODE} from '../Constants';
 import {UserData} from '../States/index';
 
 const ProfileReducer = (state = UserData, action) => {

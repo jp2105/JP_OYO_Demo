@@ -89,7 +89,9 @@ class ProfileClass extends React.Component {
         gender: this.props.profile[0].hasOwnProperty('gender')
           ? this.props.profile[0].gender
           : '',
-        married: this.props.profile[0].hasOwnProperty('married') ? 'unmarried' : 'married',
+        married: this.props.profile[0].hasOwnProperty('married')
+          ? 'unmarried'
+          : 'married',
         date: this.props.profile[0].hasOwnProperty('dob')
           ? this.props.profile[0].dob
           : '',
@@ -349,25 +351,24 @@ class ProfileClass extends React.Component {
             />
           </View>
         </ScrollView>
-
-        <View
-          style={{
-            marginBottom: widthScreen * 0.03,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderWidth: 1,
-            borderColor: 'grey',
-            width: widthScreen * 0.9,
-            alignSelf: 'center',
-            borderRadius: widthScreen * 0.25,
+        <TouchableWithoutFeedback
+          style={{position: 'absolute'}}
+          onPress={() => {
+            _removeAsyncStorage(LOGIN_ASYNC_STORAGE).then(res => {
+              this.props._setProfile('');
+              this.props.navigation.navigate('Home');
+            });
           }}>
-          <TouchableWithoutFeedback
-            style={{position: 'absolute'}}
-            onPress={() => {
-              _removeAsyncStorage(LOGIN_ASYNC_STORAGE).then(res => {
-                this.props._setProfile('');
-                this.props.navigation.navigate('Home');
-              });
+          <View
+            style={{
+              marginBottom: widthScreen * 0.03,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderWidth: 1,
+              borderColor: 'grey',
+              width: widthScreen * 0.9,
+              alignSelf: 'center',
+              borderRadius: widthScreen * 0.25,
             }}>
             <Text
               style={{
@@ -376,8 +377,8 @@ class ProfileClass extends React.Component {
               }}>
               Logout
             </Text>
-          </TouchableWithoutFeedback>
-        </View>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     );
   };
@@ -402,12 +403,12 @@ class ProfileClass extends React.Component {
           _removeFocuse={this._removeFocuse}
         />
         <CountryCode
-            states={this.state}
-            Close={this._closeModel}
-            myProps={this.props}
-            _setCountryCode={code => {
-              this._setCountryCode(code);
-            }}
+          states={this.state}
+          Close={this._closeModel}
+          myProps={this.props}
+          _setCountryCode={code => {
+            this._setCountryCode(code);
+          }}
         />
         <View style={styles.middelScreen}>
           <Image
@@ -423,13 +424,13 @@ class ProfileClass extends React.Component {
           <View style={styles.mobileNoInnerView}>
             <View style={styles.mobileNoView}>
               <TouchableWithoutFeedback
-                  onPress={() => {
-                    this.props
-                        ._CountryCode()
-                        .then(this.setState({isCountryCodeModel: true}));
-                  }}>
+                onPress={() => {
+                  this.props
+                    ._CountryCode()
+                    .then(this.setState({isCountryCodeModel: true}));
+                }}>
                 <Text style={{marginLeft: widthScreen * 0.05}}>
-                   {this.state.countryCode}{' '}
+                  {this.state.countryCode}{' '}
                 </Text>
               </TouchableWithoutFeedback>
               <TextInput
@@ -521,7 +522,12 @@ class ProfileClass extends React.Component {
             </View>
           </View>
           <View
-            style={{height: 1, width: widthScreen, backgroundColor: 'grey',opacity:0.5}}
+            style={{
+              height: 1,
+              width: widthScreen,
+              backgroundColor: 'grey',
+              opacity: 0.5,
+            }}
           />
           {this.state.isLogin ? this._ifLogin() : this._ifNotLogin()}
         </View>
